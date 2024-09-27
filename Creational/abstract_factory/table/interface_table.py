@@ -4,4 +4,4 @@ class InterfaceTable(ABC):
     @staticmethod
     @abstractmethod
     def get_dimensions():
-        pass
+        NotImplemented
