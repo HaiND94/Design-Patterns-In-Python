@@ -1,4 +1,4 @@
-# Singleton Design Pattern
+# Decorator Design Pattern
 ## Overview 
 The decorator pattern is a structural pattern, that allows you to attach additional responsibilities to an object at runtime.
 
@@ -11,19 +11,20 @@ The decorator pattern adds extensibility without modifying the original object.
 The decorator forwards requests to the enclosed object and can perform extra actions.
 
 You can nest decorators recursively.
-## Singleton UML Diagram
+## Decorator UML Diagram
 <picture>
-  <img alt="Singleton Parttern UML Diagram" src="./UML/decorator_concept.svg">
+  <img alt="Decorator Parttern UML Diagram" src="./UML/decorator_concept.svg">
 </picture>
 
 ## Builder Example UML Diagram
 <picture> 
-  <img alt="Singleton Parttern Example UML Diagram" src="./UML/decorator_example.svg">
+  <img alt="Decorator Parttern Example UML Diagram" src="./UML/decorator_example.svg">
 </picture>
 
 ## Summary
-To be a Singleton, there must only be one copy of the Singleton, no matter how many times, or in which class it was instantiated.
-You want the attributes or methods to be globally accessible across your application, so that other classes may be able to use the Singleton.
-You can use Singletons in other classes, as I did with the leaderboard, and they will all use the same Singleton regardless.
-You want controlled access to a sole instance.
-For a class to act as a singleton, it should not contain any references to self.
+- Use the decorator when you want to add responsibilities to objects dynamically without affecting the inner object.
+- You want the option to later remove the decorator from an object in case you no longer need it.
+- It is an alternative method to creating multiple combinations of subclasses. I.e., Instead of creating a subclass with all combinations of objects A, B, C in any order, and including/excluding objects, you could create 3 objects that can decorate each other in any order you want. E.g., (D(A(C))) or (B(C)) or (A(B(A(C))))
+- The decorator, compared to using static inheritance to extend, is more flexible since you can easily add/remove the decorators at runtime. E.g., use in a recursive function.
+- A decorator supports recursive composition. E.g., halve(halve(number))
+- A decorator shouldn't modify the internal objects data or references. This allows the original object to stay intact if the decorator is later removed.
