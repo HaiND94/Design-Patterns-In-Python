@@ -1,43 +1,23 @@
-# Adapter Design Pattern
+# Composite Design Pattern
 ## Overview 
-The Bridge pattern is similar to the Adapter pattern except in the intent that you developed it.
+The Composite design pattern is a structural pattern useful for hierarchical management.
 
-The Bridge is an approach to refactor already existing code, whereas the Adapter creates an interface on top of existing code through existing available means without refactoring any existing code or interfaces.
+The Composite design pattern,
 
-The motivation for converting your code to the Bridge pattern is that it may be tightly coupled. There is logic and abstraction close together that is limiting your choices in how you can extend your solution in the way that you need.
+- Allows you to represent individual entities(leaves) and groups of leaves as the same.
+- Is a structural design pattern that lets you compose objects into a changeable tree structure.
+- Is great if you need the option of swapping hierarchical relationships around.
+- Allows you to add/remove components to the hierarchy.
+- Provides flexibility of structure
 
-E.g., you may have one Car class, that produces a very nice car. But you would like the option of varying the design a little, or outsourcing responsibility of creating the different components.
+Examples of using the Composite Design Pattern can be seen in a file system directory structure where you can swap the hierarchy of files and folders, and also in a drawing program where you can group, ungroup, transform objects and change multiple objects at the same time.
 
-The Bridge pattern is a process about separating abstraction and implementation, so this will give you plenty of new ways of using your classes.
-```
-CAR = Car()
-print(CAR)
-> Car has wheels and engine and windows and everything else.
-```
-But you would like to delegate the engine dynamically from a separate set of classes or solutions.
-```
-ENGINE = EngineA()
-CAR = Car(EngineA)
-```
-A Bridge didn't exist before, but since after the separation of interface and logic, each side can be extended independently of each other.
 
-Also, the application of a Bridge in your code should use composition instead of inheritance. This means that you assign the relationship at runtime, rather than hard coded in the class definition.
-I.e., CAR = Car(EngineA) rather than class Car(EngineA):
-
-A Bridge implementation will generally be cleaner than an Adapter solution that was bolted on. Since it involved refactoring existing code, rather than layering on top of legacy or third-party solutions that may not have been intended for your particular use case.
-
-You are the designer of the Bridge, but both approaches to the problem may work regardless.
-
-The implementer part of a Bridge, can have one or more possible implementations for each refined abstraction. E.g., The implementor can print to paper, or screen, or format for a web browser. And the abstraction side could allow for many permutations of every shape that you can imagine.
 ## Decorator UML Diagram
-<picture>
-  <img alt="Decorator Parttern UML Diagram" src="./UML/bridge_concept.svg">
-</picture>
+![alt text](./UML/image-2.png)
 
 ## Builder Example UML Diagram
-<picture> 
-  <img alt="Decorator Parttern Example UML Diagram" src="./UML/bridge_example.svg">
-</picture>
+![alt text](./UML/image-3.png)
 
 ## Summary
 - Use the decorator when you want to add responsibilities to objects dynamically without affecting the inner object.
